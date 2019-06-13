@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
+import Footer from "./footer"
 import "../styles/bootstrap.min.css"
 import "./layout.css"
 
@@ -26,11 +27,7 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <div>{children}</div>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
       </>
     )}
   />
