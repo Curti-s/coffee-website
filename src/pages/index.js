@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NavBar from "../components/navbar"
 import BackgroundSection from "../components/background"
+import Info from "../components/info"
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -15,6 +16,7 @@ const IndexPage = ({ data }) => (
       title="Kirimi's Brew"
       styleClass="default-background"
     />
+    <Info />
   </Layout>
 )
 
