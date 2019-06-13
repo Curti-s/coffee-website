@@ -1,18 +1,33 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NavBar from "../components/navbar"
+import BackgroundSection from "../components/background"
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <NavBar />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <BackgroundSection
+      img={data.img.childImageSharp.fluid}
+      title="Kirimi's Brew"
+      styleClass="default-background"
+    />
   </Layout>
 )
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  {
+    img: file(relativePath: { eq: "default-background.jpeg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+  }
+`

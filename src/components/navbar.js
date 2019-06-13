@@ -23,7 +23,7 @@ export default class NavBar extends React.Component {
   }
   render() {
     return (
-      <nav className="navbar navbar-expand-sm bg-light navbar-light ">
+      <nav className="navbar navbar-expand-lg bg-light navbar-light ">
         <Link to="/" className="navbar-brand">
           <img src={logo} alt="logo" />
         </Link>
