@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import NavBar from "../components/navbar"
 import BackgroundSection from "../components/background"
 import Info from "../components/info"
+import Menu from "../components/menu"
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -17,6 +18,7 @@ const IndexPage = ({ data }) => (
       styleClass="default-background"
     />
     <Info />
+    <Menu items={data.menu} />
   </Layout>
 )
 
@@ -28,6 +30,24 @@ export const pageQuery = graphql`
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+    menu: allContentfulCoffeeItem {
+      edges {
+        node {
+          id
+          title
+          description {
+            description
+          }
+          price
+          category
+          image {
+            fixed(width: 50, height: 50) {
+              ...GatsbyContentfulFixed_tracedSVG
+            }
+          }
         }
       }
     }
