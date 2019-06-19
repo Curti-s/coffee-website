@@ -1,8 +1,15 @@
+let activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Coffee website`,
+    description: `Coffee website developed in gatsby js and contentful cms.`,
+    author: `@kirimi`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -30,9 +37,9 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `selqmkmh60q7`,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: "mD5SLsIJ8szy-TciheVNyQIAQtw1q6REm51Rgp8m_Io",
+        accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,6 +7,8 @@ import NavBar from "../components/navbar"
 import BackgroundSection from "../components/background"
 import Info from "../components/info"
 import Menu from "../components/menu"
+import ProductList from "../components/product-list"
+import Contact from "../components/contact"
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -19,6 +21,8 @@ const IndexPage = ({ data }) => (
     />
     <Info />
     <Menu items={data.menu} />
+    <ProductList />
+    <Contact />
   </Layout>
 )
 
