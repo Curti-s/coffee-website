@@ -17,6 +17,7 @@ export default function ProductList() {
                 price
                 image {
                   fluid(maxHeight: 426) {
+                    src
                     ...GatsbyContentfulFluid_tracedSVG
                   }
                 }
@@ -28,7 +29,7 @@ export default function ProductList() {
       render={data => {
         return (
           <section className="py-5">
-            <div class="container">
+            <div className="container">
               <Title title="Our Products" />
               <div className="row">
                 {data.product.edges.map(({ node: product }) => {
